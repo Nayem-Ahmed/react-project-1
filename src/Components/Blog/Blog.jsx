@@ -1,5 +1,5 @@
 import {FaBookmark} from 'react-icons/fa';
-export default function Blog({blog,handleAddBookmarks}) {
+export default function Blog({blog,handleAddBookmarks,handleReading}) {
     const {cover_image,author_image,author_name,post_time,reading_time,title,hashtags} = blog;
     return(
         <div className="mb-5">
@@ -23,7 +23,7 @@ export default function Blog({blog,handleAddBookmarks}) {
                 hashtags.map((hashtag,index) => <span key={index}><a className='mr-2' href="#">{hashtag}</a></span>)
             }
            </p>
-           <a className='underline text-blue-800' href="">Mark as read</a>
+           <button className='underline text-blue-800' onClick={()=>handleReading(reading_time)}>Mark as read</button>
         </div>
     )
     
